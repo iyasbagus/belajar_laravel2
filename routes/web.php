@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Barang;
+use App\Models\Siswa;
 
 
 Route::get('/', function () {
@@ -75,8 +76,32 @@ Route::get('myname/{name?}', function ($name = "Abdu") {
     return "My name is $name";
 });
 
+Route::get('/testmodel11', function () {
+    $post = Post::all();
+    return view('tampil_post', compact('post'));
+});
+
 //menampilkan data dari database
 Route::get('/testmodel', function () {
     $data = Barang::all();
     return $data;
+});
+
+//menampilkan data dari database
+Route::get('/testmodel2', function () {
+    $siswa = Siswa::all();
+    return view('tampil_siswa', compact('siswa'));
+    //$data = Siswa::where('nama','like','%Iyas Bagus%')->get();
+
+    //tambah data
+    // $data = new Siswa;
+    // $data-> nama = "Jon Snow";
+    // $data-> jenis_kelamin = "Pria";
+    // $data-> alamat = "Winterfell";
+    // $data-> agama = "Islam";
+    // $data-> telepon = "1020";
+    // $data-> email = "jonsnow123@gmail.com";
+    // $data->save();
+
+    //return $data;
 });
