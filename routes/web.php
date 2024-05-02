@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Barang;
 use App\Models\Siswa;
+use App\Models\Pengguna;
+use App\Models\Telepon;
+use App\Models\Merek;
+use App\Models\Produk;
+
 
 
 Route::get('/', function () {
@@ -105,3 +110,24 @@ Route::get('/testmodel2', function () {
 
     //return $data;
 });
+
+Route::get('/testmodel20', function () {
+    $pengguna = Pengguna::all();
+    return view('tampil_pengguna', compact('pengguna'));
+});
+
+Route::get('/testmodel21', function () {
+    $telepon = Telepon::all();
+    return view('tampil_telepon', compact('telepon'));
+});
+
+Route::get('/testmodel22', function () {
+    $merek = Merek::all();
+    return view('tampil_merek', compact('merek'));
+});
+
+Route::get('/testmodel23', function () {
+    $produk = Produk::all();
+    return view('tampil_produk', compact('produk'));
+});
+
