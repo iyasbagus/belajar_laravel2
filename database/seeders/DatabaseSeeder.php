@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TeleponsTableSeeder::class);
         $this->call(MereksTableSeeder::class);
         $this->call(ProduksTableSeeder::class);
-
-
+        $this->call(BaranggsTableSeeder::class);
+        $this->call(PembelisTableSeeder::class);
+        $this->call(TransaksisTableSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
