@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BaranggsTableSeeder::class);
         $this->call(PembelisTableSeeder::class);
         $this->call(TransaksisTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 

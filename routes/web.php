@@ -11,6 +11,10 @@ use App\Models\Produk;
 use App\Models\Barangg;
 use App\Models\Pembeli;
 use App\Models\Transaksi;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\MerekController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -136,3 +140,26 @@ Route::get('/testmodel24', function () {
     $transaksi = Transaksi::all();
     return view('tampil_transaksi', compact('transaksi'));
 });
+
+// Route::get('/template', function () {
+    // $produk = Produk::all();
+    // return view('template', compact('produk'));
+// });
+
+//controller
+Route::get('post',[PostController::class,'menampilkan']);
+Route::get('post/{id}',[PostController::class,'show']);
+
+Route::get('produk', [ProdukController::class, 'menampilkan']);
+Route::get('produk/{id}', [ProdukController::class, 'show']);
+
+Route::get('merek', [MerekController::class, 'menampilkan']);
+Route::get('merek/{id}', [MerekController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//route untuk brand
+use App\Http\Controllers\BrandController;
+Route::resource('brand', BrandController::class);
