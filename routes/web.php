@@ -146,13 +146,15 @@ Route::get('/testmodel24', function () {
     // return view('template', compact('produk'));
 // });
 
-//controller
+//post
 Route::get('post',[PostController::class,'menampilkan']);
 Route::get('post/{id}',[PostController::class,'show']);
 
+//produk
 Route::get('produk', [ProdukController::class, 'menampilkan']);
 Route::get('produk/{id}', [ProdukController::class, 'show']);
 
+//merek
 Route::get('merek', [MerekController::class, 'menampilkan']);
 Route::get('merek/{id}', [MerekController::class, 'show']);
 
@@ -163,3 +165,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //route untuk brand
 use App\Http\Controllers\BrandController;
 Route::resource('brand', BrandController::class);
+
+//route untuk product
+use App\Http\Controllers\ProductController;
+Route::resource('product', ProductController::class);
